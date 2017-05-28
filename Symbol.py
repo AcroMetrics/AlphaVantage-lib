@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import requests
+
 class Symbol(object):
     def __init__ (self, ticker, api_key):
         self.symbol = ticker
@@ -49,41 +51,21 @@ class Symbol(object):
         '''
         # TODO: finish function
 
-    def parse_data(self, data):
+    def get_data(self, query):
         '''
-        Internal function to parse data from get_data()
+        Internal function to get and parse data from the AlphaVantage API
 
         Usage:
-            symbol.parse_data(data)
+            symbol.get_data(query)
 
             symbol: a Symbol object
-            data: a raw JSON object
-        '''
-        # TODO: parsing. Return Parsed JSON.
-
-    def get_data(self, api_call):
-        '''
-        Internal function to get data from the AlphaVantage API
-
-        Usage:
-            symbol.get_data(api_call)
-
-            symbol: a Symbol object
-            api_call: a properly formatted string for the API query
+            query: a properly formatted string for the API query
                 e.g. 'function=TIME_SERIES_DAILY&symbol=MSFT&apikey=demo'
         '''
-        # TODO: get raw JSON, return it.
+        url = 'http://www.alphavantage.co/query'
 
-    def generate_query(self, query):
-        '''
-        Internal function to generate a query for the AlphaVantage API
+        response = requests.get(url, params=query)
+        data = response.json()
 
-        Usage:
-            symbol.generate_query(query)
-
-            symbol: a Symbol object
-            query: a dictionary with where keys are API parameters and values
-                are their values
-        '''
-        # TODO: return query string from dict of parameters
+        return data
 
