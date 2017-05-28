@@ -12,4 +12,5 @@ TBD
 [here](http://www.alphavantage.co/support/#api-key).
 2. Install `requests` and `alphavantage-lib` using `pip`. E.g. `pip install
    requests alphavantage-lib`
+3. Import the module with `import AlphaVantage`
 

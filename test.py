@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-from Symbol import Symbol
-from Sector import Sector
+
+import AlphaVantage
 
 # TODO: Add code to test each class
 
